@@ -1,0 +1,105 @@
+fuzzy_build_conf {
+    ant_1 {
+        mfs {
+            name: "mf1"
+            type: "trapmf"
+            array: -100
+            array: -100
+            array: -0.5
+            array: -0.1
+        }
+        mfs {
+            name: "mf2"
+            type: "trimf"
+            array: -0.5
+            array: -0.1
+            array: -0.05
+        }
+        mfs {
+            name: "mf3"
+            type: "trimf"
+            array: -0.1
+            array: -0.05
+            array: 0
+        }
+        mfs {
+            name: "mf4"
+            type: "trimf"
+            array: -0.05
+            array: 0
+            array: 0.05
+        }
+        mfs {
+            name: "mf5"
+            type: "trimf"
+            array: 0
+            array: 0.05
+            array: 0.1
+        }
+        mfs {
+            name: "mf6"
+            type: "trimf"
+            array: 0.05
+            array: 0.1
+            array: 0.5
+        }
+        mfs {
+            name: "mf7"
+            type: "trapmf"
+            array: 0.1
+            array: 0.5
+            array: 100
+            array: 100
+        }
+        range_array: -100
+        range_array: 100
+        range_array: 0.01
+    }
+    rules {
+        name: "r1"
+        type: "AND"
+        mf_names: "mf1"
+    }
+    rules {
+        name: "r2"
+        type: "AND"
+        mf_names: "mf2"
+    }
+    rules {
+        name: "r3"
+        type: "AND"
+        mf_names: "mf3"
+    }
+    rules {
+        name: "r4"
+        type: "AND"
+        mf_names: "mf4"
+    }
+    rules {
+        name: "r5"
+        type: "AND"
+        mf_names: "mf5"
+    }
+    rules {
+        name: "r6"
+        type: "AND"
+        mf_names: "mf6"
+    }
+    rules {
+        name: "r7"
+        type: "AND"
+        mf_names: "mf7"
+    }
+}
+
+phi: 3.0
+init_compensation_value: 0
+use_compensation_out: true
+
+init_adaptive_values: 0
+init_adaptive_values: 0
+init_adaptive_values: 0
+init_adaptive_values: 0
+init_adaptive_values: 0
+init_adaptive_values: 0
+init_adaptive_values: 0

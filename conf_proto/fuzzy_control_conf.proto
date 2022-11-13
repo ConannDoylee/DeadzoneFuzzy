@@ -1,0 +1,67 @@
+syntax = "proto2";
+package control.fuzzy;
+
+// simulation relative conf
+message SimulationConf {
+    optional double T = 1;
+    optional int32 cycle = 2;
+}
+
+// compensator relative conf
+message MemberFunctionConf {
+    optional string name = 1;
+    optional string type = 2;
+    repeated double array = 3;
+}
+
+message AntecedentConf {
+    repeated MemberFunctionConf mfs = 1;
+    repeated double range_array = 2;
+
+}
+
+message RuleConf {
+    optional string name = 1;
+    optional string type = 2;
+    repeated string mf_names = 3;
+}
+
+message FuzzyBuildConf {
+    optional AntecedentConf ant_1 = 1;
+    optional AntecedentConf ant_2 = 2;
+    repeated RuleConf rules = 3;
+}
+
+message CompensationConf {
+    optional FuzzyBuildConf fuzzy_build_conf = 1;
+    optional double phi = 2;
+    repeated double init_adaptive_values = 3;
+    optional double init_compensation_value = 4;
+    optional bool use_compensation_out = 5;
+}
+
+// controller relative conf
+message ControllerConf {
+    optional double b = 1;
+    optional double m = 2;
+    optional double lambbda = 3;
+    optional double kesi = 4;
+    optional double n = 5;
+    optional double mu = 6;
+}
+
+// model relative conf
+message DeadzoneConf {
+    optional double m = 1;
+    optional double delta_l = 2;
+    optional double delta_r = 3;    
+}
+
+message ModelConf {
+    optional uint32 N = 1;
+    optional double b = 2;
+    optional DeadzoneConf deadzone_conf = 3;
+    repeated double init_value = 4;
+    optional double mu = 5;
+    optional bool use_deadzone = 6;
+}

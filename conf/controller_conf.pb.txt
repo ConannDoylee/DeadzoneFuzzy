@@ -1,0 +1,6 @@
+b: 1
+m: 1
+lambbda: 0.6
+kesi: 10
+n: 2
+mu: 1

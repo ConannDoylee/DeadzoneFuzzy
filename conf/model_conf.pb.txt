@@ -1,0 +1,11 @@
+N: 10
+b: 1
+init_value: -1.5
+init_value: 1.5
+mu: 1
+deadzone_conf {
+    m: 1
+    delta_l: -0.4
+    delta_r: 0.3
+}
+use_deadzone: true
