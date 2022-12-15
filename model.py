@@ -1,6 +1,7 @@
 import numpy as np
 from google.protobuf import text_format
 import os
+import copy
 from matplotlib import pyplot as plt
 
 from conf_proto import fuzzy_control_conf_pb2
@@ -67,7 +68,7 @@ class Model(object):
     def update(self,u):
         u1 = self.deadzone(u)
         self.odeRK4(u1)
-        return self.X,u1
+        return copy.copy(self.X),u1
     
     def state(self):
         return self.X
@@ -76,11 +77,12 @@ class Model(object):
         x_list = []
         v_list = []
         for i in np.arange(1000):
-            X = self.update(0)
+            X,u1 = self.update(0)
             x_list.append(X[0])
             v_list.append(X[1])
-        
-        plt.figure()
+
+        plt.figure('Van der Pol oscillator')
+        plt.title('Van der Pol oscillator')
         plt.plot(x_list,v_list)
         plt.grid()
         return
@@ -92,5 +94,5 @@ def main(root):
     plt.show()
 
 
-# if __name__ == '__main__':
-#     main(".")
+if __name__ == '__main__':
+    main(".")
